@@ -3,14 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title>Wiki Search App</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-
-    <script type="text/javascript" src="animate.min.js">
+    <main ng-app="WikiApp" ng-controller="MainCtrl">
+  <div id="search" class="wrapper fullHeight"><a href="#" class="white-text">Search here for a article in Wiki</a><br/>
+    <form ng-submit="search()">
+      <input type="text" ng-model="searchTxt"/>
+      <div class="eks"></div>
+    </form>
+    <!-- <p id="help" class="white-text">Click icon to search</p> -->
+  </div>
+  <div class="wrapper">
+    <ul><a ng-href="{{result.page}}" target="_blank" ng-repeat="result in results">
+        <li>
+          <h1>{{result.title}}</h1>
+          <p>{{result.body}}</p>
+        </li>
+      </a>
+    </ul>
+  </div>
+</main>
+    <script src="angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js">
 
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js">
+    <script src="route.min.js">
+
     </script>
+    <script src="animate.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
